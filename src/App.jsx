@@ -3,18 +3,17 @@ import { useState } from "react";
 function App() {
   const [students, setStudents] = useState([]);
   const [name, setName] = useState("");
+  const [roll, setRoll] = useState("");
   const [editId, setEditId] = useState(null);
 
   const handleAdd = () => {
     if (name.trim() === "") return;
 
     if (editId !== null) {
-      // Edit existing student
       setStudents(students.map((s, i) => (i === editId ? { name } : s)));
       setEditId(null);
     } else {
-      // Add new student
-      setStudents([...students, { name }]);
+      setStudents([...students, { name, roll }]);
     }
     setName("");
   };
@@ -26,6 +25,11 @@ function App() {
   const handleEdit = (index) => {
     setName(students[index].name);
     setEditId(index);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleAdd();
   };
   return (
     <div>
@@ -51,7 +55,7 @@ function App() {
         <div className="student-list">
           {students.length === 0 && <p>No students added yet.</p>}
 
-          {students.map((student) => (
+          {students.map((student, index) => (
             <div key={student.id} className="student-card">
               <div className="student-info">
                 <span>
@@ -60,16 +64,13 @@ function App() {
               </div>
 
               <div className="student-buttons">
-                <button
-                  className="edit-btn"
-                  onClick={() => handleEdit(student)}
-                >
+                <button className="edit-btn" onClick={() => handleEdit(index)}>
                   Edit
                 </button>
 
                 <button
                   className="delete-btn"
-                  onClick={() => handleDelete(student.id)}
+                  onClick={() => handleDelete(index)}
                 >
                   Delete
                 </button>
