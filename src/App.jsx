@@ -39,19 +39,46 @@ function App() {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <button type="submit">Add Student</button>
+          <input
+            type="text"
+            placeholder="Enter Roll"
+            value={roll}
+            onChange={(e) => setRoll(e.target.value)}
+          />
+          <button>{editId !== null ? "Update" : "Add"}</button>
         </form>
 
-        <ul>
-          {students.map((student, index) => (
-            <li key={index}>
-              {student.name}
-              <button onClick={() => handleEdit(index)}>Edit</button>
-              <button onClick={() => handleDelete(index)}>Delete</button>
-            </li>
+        <div className="student-list">
+          {students.length === 0 && <p>No students added yet.</p>}
+
+          {students.map((student) => (
+            <div key={student.id} className="student-card">
+              <div className="student-info">
+                <span>
+                  {student.name} Roll-no:{student.roll}
+                </span>
+              </div>
+
+              <div className="student-buttons">
+                <button
+                  className="edit-btn"
+                  onClick={() => handleEdit(student)}
+                >
+                  Edit
+                </button>
+
+                <button
+                  className="delete-btn"
+                  onClick={() => handleDelete(student.id)}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
 }
+export default App;
