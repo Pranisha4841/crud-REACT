@@ -1,13 +1,12 @@
 body {
   font-family: "Segoe UI", sans-serif;
-  background: radial-gradient(circle, rgb(50, 67, 50), rgb(20, 30, 20));
+  background: radial-gradient(rgb(50, 67, 50));
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
 }
-
 .container {
   width: 300px;
   margin: 40px auto;
