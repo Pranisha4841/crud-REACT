@@ -27,4 +27,31 @@ function App() {
     setName(students[index].name);
     setEditId(index);
   };
+  return (
+    <div>
+      <div className="container">
+        <h2>Student Record</h2>
+
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Enter Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <button type="submit">Add Student</button>
+        </form>
+
+        <ul>
+          {students.map((student, index) => (
+            <li key={index}>
+              {student.name}
+              <button onClick={() => handleEdit(index)}>Edit</button>
+              <button onClick={() => handleDelete(index)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 }
