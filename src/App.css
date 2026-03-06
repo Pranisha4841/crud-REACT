@@ -35,15 +35,6 @@ input {
   background-color: white;
   color: #000;
 }
-
-button.edit-btn {
-  background-color: #4caf50;
-  color: white;
-}
-button.delete-btn {
-  background-color: #f44336;
-  color: white;
-}
 button {
   padding: 10px;
   background-color: #2c451f;
@@ -55,16 +46,65 @@ button {
 button:hover {
   background-color: #042e03;
 }
-.student-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-.student-card {
-  background-color: #e0f7e9;
-  padding: 15px;
-  border-radius: 5px;
+.student-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #f9f9f9;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.student-name {
+  font-weight: bold;
+}
+.student-actions button {
+  margin-left: 5px;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+.student-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.student-card {
+  background: #d7f3df;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-info {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #333;
+}
+
+.student-buttons button {
+  margin-left: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.edit-btn {
+  background-color: #37819f;
+}
+
+.delete-btn {
+  background-color: #ec6c60;
 }
